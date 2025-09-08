@@ -636,6 +636,60 @@
         }
     </style>
     <script>
+        async function updateWeather() {
+            // Define locations with coordinates
+            const locations = {
+                // Day 1
+                "Denver/Morrison": { lat: 39.65, lon: -105.21 },
+                "Echo Lake": { lat: 39.66, lon: -105.60 },
+                "St. Mary's Glacier": { lat: 39.8331, lon: -105.6436 },
+                "Boulder": { lat: 40.01, lon: -105.27 },
+                "Fort Collins": { lat: 40.58, lon: -105.08 },
+
+                // Day 2
+                "Fort Collins Morning": { lat: 40.58, lon: -105.08 },
+                "High Alpine Areas": { lat: 39.66, lon: -105.87 },     // Loveland Pass summit ~11,990 ft
+                "Mid-Elevation Stops": { lat: 39.74, lon: -105.52 },   // Idaho Springs / Georgetown corridor
+                "Colorado Springs Evening": { lat: 38.83, lon: -104.82 },
+
+                // Day 3
+                "Colorado Springs": { lat: 38.83, lon: -104.82 },
+                "Pikes Peak Summit": { lat: 38.84, lon: -105.04 },     // 14,115 ft summit
+                "Paint Mines Area": { lat: 39.01, lon: -104.28 },      // Calhan, CO
+                "Evening Colorado Springs": { lat: 38.83, lon: -104.82 },
+
+                // Day 4
+                "Colorado Springs Morning": { lat: 38.83, lon: -104.82 },
+                "Seven Falls Area": { lat: 38.79, lon: -104.87 },
+                "Royal Gorge": { lat: 38.46, lon: -105.33 },
+                "Denver Evening (Airport)": { lat: 39.86, lon: -104.67 }  // DEN Airport
+            };
+
+            for (const [name, coords] of Object.entries(locations)) {
+                try {
+                    // Open-Meteo API: free, no key required
+                    const url = `https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&current=temperature_2m`;
+                    const res = await fetch(url);
+                    const data = await res.json();
+
+                    if (data.current && data.current.temperature_2m !== undefined) {
+                        const temp = data.current.temperature_2m;
+                        const card = [...document.querySelectorAll(".weather-card h5")]
+                            .find(el => el.textContent.toLowerCase().includes(name.toLowerCase()));
+
+                        if (card) {
+                            card.nextElementSibling.innerHTML =
+                                `<strong>${temp.toFixed(1)}°C</strong>`;
+                        }
+                    }
+                } catch (e) {
+                    console.error(`Weather fetch failed for ${name}`, e);
+                }
+            }
+        }
+
+        // Run when page loads
+        document.addEventListener("DOMContentLoaded", updateWeather);
         // NAVIGATION SCROLL AND MOBILE MENU
         document.addEventListener("DOMContentLoaded", function () {
             // Navigation link handlers
@@ -895,8 +949,7 @@
         <div class="page day-page day-1" id="day1">
             <div class="day-header">
                 <div class="day-title">DAY 1 - SATURDAY, SEPTEMBER 27</div>
-                <div class="day-subtitle">🏔️ DEN → Red Rocks → Echo Lake (via Evergreen → Squaw Pass) → St. Mary's
-                    Glacier
+                <div class="day-subtitle">🏔️ DEN → Red Rocks → Evergreen → Squaw Pass → Echo Lake → St. Mary's Glacier
                     → Boulder → Fort Collins</div>
             </div>
 
@@ -912,7 +965,7 @@
                     </div>
                     <div class="info-card">
                         <h4>🚗 Driving Stats</h4>
-                        <p><strong>Total Distance:</strong> ~230 miles<br>
+                        <p><strong>Total Distance:</strong> ~280 miles<br>
                             <strong>Drive Time:</strong> 5–5.5 hours<br>
                             <strong>Mountain Roads:</strong> Yes (Squaw Pass, glacier approach)
                         </p>
@@ -924,23 +977,23 @@
             <div class="weather-info">
                 <div class="weather-card">
                     <h5>🌤️ Denver/Morrison</h5>
-                    <p><strong>18-24°C</strong><br>Sunny, Light Breeze</p>
+                    <p>Loading...</p>
                 </div>
                 <div class="weather-card">
                     <h5>🏔️ Echo Lake (10,600 ft)</h5>
-                    <p><strong>3–8°C</strong><br>Alpine chill, possible winds</p>
+                    <p>Loading...</p>
                 </div>
                 <div class="weather-card">
                     <h5>🏔️ St. Mary's Glacier</h5>
-                    <p><strong>5-12°C</strong><br>Alpine, Windy, Cold</p>
+                    <p>Loading...</p>
                 </div>
                 <div class="weather-card">
                     <h5>🌆 Boulder Evening</h5>
-                    <p><strong>13-18°C</strong><br>Cool, Light Jacket</p>
+                    <p>Loading...</p>
                 </div>
                 <div class="weather-card">
                     <h5>🌙 Fort Collins Night</h5>
-                    <p><strong>6-10°C</strong><br>Cool Evening</p>
+                    <p>Loading...</p>
                 </div>
             </div>
 
@@ -982,7 +1035,7 @@
                         <tr>
                             <td><strong>11:30</strong></td>
                             <td>🚗 Drive via Evergreen & Squaw Pass Scenic Byway</td>
-                            <td>~1.5 hrs</td>
+                            <td>~1.5 hrs-2 hrs</td>
                             <td>40 mi</td>
                             <td>Winding alpine road with overlooks and pullouts</td>
                         </tr>
@@ -1003,9 +1056,10 @@
                         <tr>
                             <td><strong>15:15</strong></td>
                             <td>🏔️ St. Mary's Glacier Trail</td>
-                            <td>120-150 min</td>
+                            <td>90-120 min</td>
                             <td>—</td>
-                            <td>$5-20 parking fee (cash). Short but steep alpine hike</td>
+                            <td>$5-20 parking fee (cash). Moderate 1.5mi each way hike, steep rocky trail, weather
+                                dependent</td>
                         </tr>
                         <tr>
                             <td><strong>18:00</strong></td>
@@ -1041,6 +1095,41 @@
                 <p><strong>Evening Route:</strong> Continue to St. Mary’s Glacier, then descend into Boulder via CO-119
                     for a scenic canyon drive</p>
             </div>
+            <!-- Echo Lake Complete Guide -->
+            <div class="section" style="--accent-color: #ff6b6b;">
+                <h3><span class="icon">🏔️</span>Echo Lake - Alpine Gem at 10,600 ft</h3>
+                <div class="overview-grid">
+                    <div class="info-card">
+                        <h4>🌊 The Lake</h4>
+                        <p>• <strong>Elevation:</strong> 10,600 feet above sea level<br>
+                            • <strong>Views:</strong> Stunning Mount Blue Sky (14,271 ft) reflections<br>
+                            • <strong>Activities:</strong> Photography, picnicking, short walks<br>
+                            • <strong>Season:</strong> Accessible May-October weather permitting</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🛣️ Getting There</h4>
+                        <p>• <strong>Route:</strong> Squaw Pass Road (CO-103) from Evergreen<br>
+                            • <strong>Drive Time:</strong> 1.5 hours from Red Rocks<br>
+                            • <strong>Road Type:</strong> Paved but winding mountain road<br>
+                            • <strong>Difficulty:</strong> Moderate mountain driving</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>📸 Photography Tips</h4>
+                        <p>• <strong>Best Light:</strong> 2-4 PM for lake reflections<br>
+                            • <strong>Composition:</strong> Mount Blue Sky backdrop<br>
+                            • <strong>Equipment:</strong> Wide-angle lens for landscape shots<br>
+                            • <strong>Weather:</strong> Clear days offer best mountain visibility</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>⚠️ Important Notes</h4>
+                        <p>• <strong>Weather:</strong> Can be 8-11°C colder than Denver<br>
+                            • <strong>Altitude:</strong> Take it easy if you feel dizzy<br>
+                            • <strong>Facilities:</strong> Limited - picnic tables, no services<br>
+                            • <strong>Parking:</strong> Free roadside parking available</p>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- Jain Dining Options -->
             <div class="section" style="--accent-color: #ff6b6b;">
@@ -1070,8 +1159,8 @@
             <div class="tip-box">
                 <h4>💡 Day 1 Tips & Tricks</h4>
                 <ul>
-                    <li><strong>🅿️ Parking Strategy:</strong> Arrive early at St. Mary's Glacier - small lot fills
-                        quickly</li>
+                    <li><strong>🅿️ Parking Strategy:</strong> St. Mary's Glacier lot smaller crowds after 4 PM when
+                        coming from Echo Lake route</li>
                     <li><strong>💵 Cash Ready:</strong> Keep $5-20 cash for mountain parking honor boxes</li>
                     <li><strong>📱 Offline Maps:</strong> Download offline maps for Squaw Pass & glacier area (spotty
                         service)</li>
@@ -1081,6 +1170,18 @@
                     <li><strong>🧥 Layer Smart:</strong> Echo Lake and Glacier are 15–20°C colder than Denver</li>
                     <li><strong>📸 Photo Timing:</strong> Red Rocks = late morning, Squaw Pass = midday, Echo Lake =
                         reflective afternoon shots</li>
+                </ul>
+                <h4>⚠️ Altitude Safety Reminder</h4>
+                <ul>
+                    <li><strong>Echo Lake (10,600 ft):</strong> Take breaks if feeling dizzy</li>
+                    <li><strong>St. Mary's Glacier (10,400+ ft):</strong> Go slow, hydrate constantly</li>
+                    <li><strong>Symptoms to watch:</strong> Headache, nausea, fatigue</li>
+                </ul>
+                <h4>⚠️ September High-Altitude Warning</h4>
+                <ul>
+                    <li><strong>Snow possible above 10,000 ft:</strong> Echo Lake & St. Mary's Glacier</li>
+                    <li><strong>Road closures:</strong> Squaw Pass (CO-103) can close suddenly</li>
+                    <li><strong>Backup plan:</strong> If weather bad, skip glacier and spend more time in Boulder</li>
                 </ul>
             </div>
 
@@ -1107,6 +1208,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="page day-page day-2" id="day2">
             <div class="day-header">
@@ -1151,21 +1253,22 @@
             <div class="weather-info">
                 <div class="weather-card">
                     <h5>🌤️ Fort Collins Morning</h5>
-                    <p><strong>7-13°C</strong><br>Cool Start</p>
+                    <p>Loading...</p>
                 </div>
                 <div class="weather-card">
                     <h5>⛰️ High Alpine Areas</h5>
-                    <p><strong>-4 to 7°C</strong><br>Very Cold, Windy</p>
+                    <p>Loading...</p>
                 </div>
                 <div class="weather-card">
                     <h5>🏞️ Mid-Elevation Stops</h5>
-                    <p><strong>10-18°C</strong><br>Pleasant Hiking</p>
+                    <p>Loading...</p>
                 </div>
                 <div class="weather-card">
                     <h5>🌆 Colorado Springs Evening</h5>
-                    <p><strong>13-21°C</strong><br>Mild Evening</p>
+                    <p>Loading...</p>
                 </div>
             </div>
+
 
             <!-- Option A: Loveland Pass -->
             <div class="section"
@@ -1281,7 +1384,7 @@
                             <td>🎫 RMNP Entrance - Estes Park</td>
                             <td>—</td>
                             <td>Show timed entry reservation</td>
-                            <td>$35 vehicle fee + timed entry permit</td>
+                            <td>$30 vehicle fee + timed entry permit</td>
                         </tr>
                         <tr>
                             <td><strong>09:00</strong></td>
@@ -1360,9 +1463,9 @@
             <div class="tip-box">
                 <h4>💡 Day 2 Essential Tips</h4>
                 <ul>
-                    <li><strong>📱 RMNP Reservations:</strong> Check Recreation.gov on Sept 26 at 5 PM for next-day
-                        availability</li>
-                    <li><strong>🌡️ Layer Strategy:</strong> Temperatures can vary 40°F between locations - dress in
+                    <li><strong>📱 RMNP Reservations:</strong> Book NOW on Recreation.gov - September slots sell out
+                        months ahead</li>
+                    <li><strong>🌡️ Layer Strategy:</strong> Temperatures can vary 4-5°C between locations - dress in
                         removable layers</li>
                     <li><strong>⛽ Fuel Up:</strong> Fill gas tank in Fort Collins - mountain gas stations are limited
                         and expensive</li>
@@ -1405,11 +1508,30 @@
                     </div>
                     <div class="info-card">
                         <h4>🌡️ Weather Range</h4>
-                        <p><strong>Colorado Springs:</strong> 18-22°C<br><strong>Pikes Peak Summit:</strong>
-                            0-4°C<br>22°C temperature difference!</p>
+                        <p><strong>Colorado Springs:</strong> 18-24°C<br><strong>Pikes Peak Summit:</strong>
+                            -1-7°C<br>30-40°F temperature difference!</p>
                     </div>
                 </div>
             </div>
+            <div class="weather-info">
+                <div class="weather-card">
+                    <h5>🌤️ Colorado Springs</h5>
+                    <p>Loading...</p>
+                </div>
+                <div class="weather-card">
+                    <h5>🏔️ Pikes Peak Summit</h5>
+                    <p>Loading...</p>
+                </div>
+                <div class="weather-card">
+                    <h5>🎨 Paint Mines Area</h5>
+                    <p>Loading...</p>
+                </div>
+                <div class="weather-card">
+                    <h5>🌙 Evening Colorado Springs</h5>
+                    <p>Loading...</p>
+                </div>
+            </div>
+
 
             <!-- Detailed Day 3 Itinerary -->
             <div class="section" style="--accent-color: #45b7d1;">
@@ -1444,7 +1566,7 @@
                             <td>🚂 Pikes Peak Cog Railway</td>
                             <td>3-4 hours</td>
                             <td>Historic railway to 14,115 ft summit</td>
-                            <td>$67pp - BOOK ADVANCE! Departs hourly 8:40-16:40</td>
+                            <td>$45-65pp (seasonal) - BOOK ADVANCE! Departs hourly 8:40-16:40</td>
                         </tr>
                         <tr>
                             <td style="font-style: italic;">Alternative:</td>
@@ -1465,7 +1587,7 @@
                             <td>🎨 Paint Mines Interpretive Park</td>
                             <td>60-90 min</td>
                             <td>Colorful clay formations, easy 1.5-mile trail</td>
-                            <td>FREE admission. 35 min east of Colorado Springs</td>
+                            <td>FREE admission. 45-50 min east via US-24 (longer than GPS estimates)</td>
                         </tr>
                         <tr>
                             <td><strong>19:00</strong></td>
@@ -1631,7 +1753,7 @@
                 <ul>
                     <li><strong>🎫 Book Pikes Peak Cog Railway NOW:</strong> Sells out quickly, especially weekend
                         departures</li>
-                    <li><strong>🧥 Summit Preparation:</strong> Bring winter jacket for Pikes Peak - can be 40°F colder
+                    <li><strong>🧥 Summit Preparation:</strong> Bring winter jacket for Pikes Peak - can be 4-5°C colder
                         than
                         base</li>
                     <li><strong>💊 Altitude Medicine:</strong> Consider altitude sickness medication if sensitive
@@ -1729,7 +1851,7 @@
                         <tr>
                             <td><strong>11:00</strong></td>
                             <td>🌉 Royal Gorge Bridge</td>
-                            <td>90-120 min</td>
+                            <td>60-90 min</td>
                             <td>—</td>
                             <td>$30-40pp base. Gondola +$25pp if time allows</td>
                         </tr>
@@ -1745,7 +1867,7 @@
                             <td>🚗 CRITICAL: Drive to DEN</td>
                             <td>2.5-3 hours</td>
                             <td>140-180 mi</td>
-                            <td>⚠️ MUST LEAVE BY 2:15 PM LATEST for 4:30 PM return</td>
+                            <td>⚠️ MUST LEAVE BY 1:30 PM LATEST for safe arrival and for 4:30 PM return</td>
                         </tr>
                         <tr style="background: #ffcccb;">
                             <td><strong>16:30</strong></td>
@@ -1887,22 +2009,23 @@
             <!-- Weather for Final Day -->
             <div class="weather-info">
                 <div class="weather-card">
-                    <h5>🌤️ Colorado Springs</h5>
-                    <p><strong>16-24°C</strong><br>Pleasant Morning</p>
+                    <h5>🌤️ Colorado Springs Morning</h5>
+                    <p>Loading...</p>
                 </div>
                 <div class="weather-card">
-                    <h5>🌊 Seven Falls Canyon</h5>
-                    <p><strong>13-21°C</strong><br>Cool, Shaded</p>
+                    <h5>💦 Seven Falls Area</h5>
+                    <p>Loading...</p>
                 </div>
                 <div class="weather-card">
                     <h5>🌉 Royal Gorge</h5>
-                    <p><strong>16-24°C</strong><br>Breezy at Bridge</p>
+                    <p>Loading...</p>
                 </div>
                 <div class="weather-card">
-                    <h5>✈️ Denver Airport</h5>
-                    <p><strong>18-24°C</strong><br>Clear for Flight</p>
+                    <h5>🌆 Denver Evening (Airport)</h5>
+                    <p>Loading...</p>
                 </div>
             </div>
+
 
             <!-- Final Day Backup Plans -->
             <div class="section" style="--accent-color: #f9ca24;">
@@ -2118,7 +2241,7 @@
                 <h4>💡 Smart Packing Tips</h4>
                 <ul>
                     <li><strong>🧅 Layer System:</strong> Dress in layers you can add/remove easily - temperature swings
-                        of 40°F+</li>
+                        of 4-5°C+</li>
                     <li><strong>👕 Material Matters:</strong> Avoid cotton in mountains - choose wool/synthetic that dry
                         quickly</li>
                     <li><strong>📱 Tech Protection:</strong> Cold weather kills batteries fast - keep devices warm in
@@ -2314,13 +2437,7 @@
                             • <strong>Overcast days:</strong> Great for waterfalls<br>
                             • <strong>Avoid:</strong> Midday harsh light</p>
                     </div>
-                    <div class="info-card">
-                        <h4>📷 Camera Settings</h4>
-                        <p>• <strong>High altitude:</strong> UV filter recommended<br>
-                            • <strong>Landscapes:</strong> f/8-f/11, focus 1/3 into scene<br>
-                            • <strong>Waterfalls:</strong> 1/4-1/2 sec shutter for flow<br>
-                            • <strong>Wildlife:</strong> Fast shutter, continuous focus</p>
-                    </div>
+
                     <div class="info-card">
                         <h4>🏔️ Best Photo Locations</h4>
                         <p>• <strong>Red Rocks:</strong> Amphitheatre stairs<br>
@@ -2412,7 +2529,7 @@
             </div>
 
             <div style="font-size: 1.2em; margin-top: 40px; opacity: 0.9;">
-                <p>📍 <strong>Total Distance:</strong> ~1,000 miles</p>
+                <p>📍 <strong>Total Distance:</strong> ~1,200 miles</p>
                 <p>🏔️ <strong>Highest Point:</strong> Pikes Peak at 14,115 feet</p>
                 <p>📸 <strong>Photo Opportunities:</strong> Endless!</p>
                 <p>🎯 <strong>Memories:</strong> Priceless</p>
