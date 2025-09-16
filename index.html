@@ -634,6 +634,33 @@
                 gap: 7px;
             }
         }
+
+        .cover .dates {
+            font-size: 1.3em;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 25px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        .poem-section {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .poem-section em {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
     </style>
     <script>
         async function updateWeather() {
@@ -806,12 +833,33 @@
         <!-- COVER PAGE -->
         <div class="cover" id="cover">
             <div class="cover-content">
+                <div class="poem-section">
+                    <p><strong>My Gudda,</strong></p>
+                    <p>The wait is over… and I can finally tell you! Our little adventure is taking us to
+                        <strong>Colorado</strong>! 🏔️✨
+                    </p>
+
+                    <p>Get ready to leave the flat horizons of Dallas behind and step into a world of breathtaking
+                        views, crisp mountain air, and landscapes so stunning they look like they were painted just for
+                        us. From soaring peaks to serene valleys, we’ll explore, laugh, and make memories that will stay
+                        with us forever. Think postcard-perfect moments, cozy little adventures, and all the wonder
+                        we’ve been imagining together.</p>
+
+                    <p>I hope you have packed your warmest layers, your sense of adventure, and that beautiful smile I
+                        love so much —
+                        Colorado is calling, and it’s going to be unforgettable!</p>
+
+                    <p><strong>Forever your Gudiya</strong></p>
+                </div>
+
                 <h1>🏔️ COLORADO</h1>
                 <h2>Ultimate Adventure Booklet</h2>
                 <div class="dates">September 27-30, 2025</div>
+
                 <p style="margin-top: 30px; font-size: 1.1em;">2 Travelers • Indian Vegetarian & Jain
-                    Options<br>Complete 4-Day Itinerary with Tips & Tricks</p>
+                    Options<br>Complete 4-Day Itinerary </p>
             </div>
+
         </div>
         <!-- SUMMARY PAGE -->
         <div class="page summary-page" id="summary">
@@ -954,13 +1002,13 @@
             </div>
 
             <div class="section" style="--accent-color: #ff6b6b;">
-                <h3><span class="icon">📍</span>Daily Overview</h3>
+                <h3><span class="icon">📋</span>Daily Overview</h3>
                 <div class="overview-grid">
                     <div class="info-card">
                         <h4>⏰ Timeline</h4>
-                        <p><strong>Start:</strong> 10:15 AM (after flight arrival)<br>
-                            <strong>End:</strong> 9:00 PM in Fort Collins<br>
-                            <strong>Total Time:</strong> 11-12 hours
+                        <p><strong>Start:</strong> 10:30 AM (after flight arrival)<br>
+                            <strong>End:</strong> 8:45 PM in Fort Collins<br>
+                            <strong>Total Time:</strong> 10.5 hours
                         </p>
                     </div>
                     <div class="info-card">
@@ -1014,66 +1062,86 @@
                         <tr>
                             <td><strong>09:01</strong></td>
                             <td>✈️ Land at DEN Airport</td>
-                            <td>45-60 min</td>
                             <td>—</td>
-                            <td>Flight 2147 arrives. Collect bags, pickup rental car</td>
+                            <td>—</td>
+                            <td>Flight 2147 arrives. Collect bags</td>
                         </tr>
                         <tr>
-                            <td><strong>10:15</strong></td>
+                            <td><strong>09:01-10:30</strong></td>
+                            <td>🚗 Baggage + rental pickup</td>
+                            <td>75-90 min</td>
+                            <td>—</td>
+                            <td>Extended buffer for shuttle & rental lines</td>
+                        </tr>
+                        <tr>
+                            <td><strong>10:30</strong></td>
                             <td>🚗 Drive to Red Rocks Park</td>
-                            <td>45-60 min</td>
+                            <td>60 min</td>
                             <td>40-45 mi</td>
-                            <td>FREE parking at visitor lots. Avoid downtown traffic</td>
+                            <td>Via C-470 S, avoid downtown traffic</td>
                         </tr>
                         <tr>
-                            <td><strong>11:15</strong></td>
+                            <td><strong>11:30</strong></td>
                             <td>🎵 Red Rocks Amphitheatre</td>
-                            <td>35-60 min</td>
+                            <td>45 min</td>
                             <td>Walk/photo</td>
                             <td>FREE admission. Visitor Center open. Iconic photo ops!</td>
                         </tr>
                         <tr>
-                            <td><strong>11:30</strong></td>
-                            <td>🚗 Drive via Evergreen & Squaw Pass Scenic Byway</td>
-                            <td>~1.5 hrs-2 hrs</td>
+                            <td><strong>12:15</strong></td>
+                            <td>🚗 Drive via Evergreen & Squaw Pass</td>
+                            <td>105 min</td>
                             <td>40 mi</td>
-                            <td>Winding alpine road with overlooks and pullouts</td>
+                            <td>Scenic alpine road with overlooks. Mountain driving buffer added</td>
                         </tr>
                         <tr>
-                            <td><strong>13:30</strong></td>
-                            <td>🌊 Echo Lake Picnic / Lakeside Stroll</td>
-                            <td>~45 min</td>
+                            <td><strong>14:00</strong></td>
+                            <td>🌊 Echo Lake picnic / lakeside stroll</td>
+                            <td>45 min</td>
                             <td>—</td>
                             <td>FREE. Picnic tables, views of Mt. Blue Sky</td>
                         </tr>
                         <tr>
-                            <td><strong>14:15</strong></td>
-                            <td>🚗 Drive to St. Mary’s Glacier Trailhead</td>
+                            <td><strong>14:45</strong></td>
+                            <td>🚗 Drive to St. Mary's Glacier Trailhead</td>
                             <td>60 min</td>
-                            <td>30 mi</td>
-                            <td>Mountain roads, curvy descent</td>
+                            <td>25 mi</td>
+                            <td>Mountain roads via Fall River Rd</td>
                         </tr>
                         <tr>
-                            <td><strong>15:15</strong></td>
+                            <td><strong>15:45</strong></td>
                             <td>🏔️ St. Mary's Glacier Trail</td>
-                            <td>90-120 min</td>
-                            <td>—</td>
-                            <td>$5-20 parking fee (cash). Moderate 1.5mi each way hike, steep rocky trail, weather
-                                dependent</td>
+                            <td>90 min</td>
+                            <td>1.5mi RT</td>
+                            <td>$5-20 parking fee (cash). Weather dependent - have backup plan</td>
                         </tr>
                         <tr>
-                            <td><strong>18:00</strong></td>
+                            <td><strong>17:15</strong></td>
+                            <td>🚗 Drive to Boulder</td>
+                            <td>75 min</td>
+                            <td>40 mi</td>
+                            <td>Descend via CO-119 canyon route</td>
+                        </tr>
+                        <tr>
+                            <td><strong>18:30</strong></td>
                             <td>🍽️ Boulder - Pearl Street Mall</td>
-                            <td>90-120 min</td>
-                            <td>40-50 mi</td>
+                            <td>75 min</td>
+                            <td>—</td>
                             <td>Dinner at Jaipur Indian Restaurant (~$25-40 for 2)</td>
                         </tr>
                         <tr>
-                            <td><strong>20:15</strong></td>
-                            <td>🏨 Drive to Fort Collins</td>
-                            <td>50-60 min</td>
+                            <td><strong>19:45</strong></td>
+                            <td>🚗 Drive to Fort Collins</td>
+                            <td>60 min</td>
                             <td>55 mi</td>
-                            <td>Days Inn Fort Collins - Check-in after 3 PM</td>
+                            <td>Days Inn Fort Collins - Confirmation #908003222</td>
+                        </tr>
+                        <tr>
+                            <td><strong>20:45</strong></td>
+                            <td>🏨 Hotel check-in & rest</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>Early rest for Day 2 adventure</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1092,9 +1160,10 @@
                     <li>📸 Scenic pullouts with views of Mount Blue Sky</li>
                     <li>🌊 Echo Lake: peaceful alpine lake perfect for picnic stop</li>
                 </ul>
-                <p><strong>Evening Route:</strong> Continue to St. Mary’s Glacier, then descend into Boulder via CO-119
+                <p><strong>Evening Route:</strong> Continue to St. Mary's Glacier, then descend into Boulder via CO-119
                     for a scenic canyon drive</p>
             </div>
+
             <!-- Echo Lake Complete Guide -->
             <div class="section" style="--accent-color: #ff6b6b;">
                 <h3><span class="icon">🏔️</span>Echo Lake - Alpine Gem at 10,600 ft</h3>
@@ -1109,7 +1178,7 @@
                     <div class="info-card">
                         <h4>🛣️ Getting There</h4>
                         <p>• <strong>Route:</strong> Squaw Pass Road (CO-103) from Evergreen<br>
-                            • <strong>Drive Time:</strong> 1.5 hours from Red Rocks<br>
+                            • <strong>Drive Time:</strong> 1.75 hours from Red Rocks<br>
                             • <strong>Road Type:</strong> Paved but winding mountain road<br>
                             • <strong>Difficulty:</strong> Moderate mountain driving</p>
                     </div>
@@ -1129,7 +1198,6 @@
                     </div>
                 </div>
             </div>
-
 
             <!-- Jain Dining Options -->
             <div class="section" style="--accent-color: #ff6b6b;">
@@ -1159,17 +1227,18 @@
             <div class="tip-box">
                 <h4>💡 Day 1 Tips & Tricks</h4>
                 <ul>
-                    <li><strong>🅿️ Parking Strategy:</strong> St. Mary's Glacier lot smaller crowds after 4 PM when
+                    <li><strong>🅿️ Parking Strategy:</strong> St. Mary's Glacier lot has fewer crowds after 4 PM when
                         coming from Echo Lake route</li>
                     <li><strong>💵 Cash Ready:</strong> Keep $5-20 cash for mountain parking honor boxes</li>
                     <li><strong>📱 Offline Maps:</strong> Download offline maps for Squaw Pass & glacier area (spotty
                         service)</li>
                     <li><strong>🥜 Snack Pack:</strong> Bring energy bars & picnic for Echo Lake</li>
-                    <li><strong>🫁 Altitude Awareness:</strong> You’ll be above 10,000 ft twice today — pace yourself
+                    <li><strong>🫁 Altitude Awareness:</strong> You'll be above 10,000 ft twice today – pace yourself
                     </li>
                     <li><strong>🧥 Layer Smart:</strong> Echo Lake and Glacier are 15–20°C colder than Denver</li>
                     <li><strong>📸 Photo Timing:</strong> Red Rocks = late morning, Squaw Pass = midday, Echo Lake =
                         reflective afternoon shots</li>
+                    <li><strong>⏰ Time Buffers:</strong> Mountain roads take 25% longer than GPS estimates</li>
                 </ul>
                 <h4>⚠️ Altitude Safety Reminder</h4>
                 <ul>
@@ -1177,7 +1246,7 @@
                     <li><strong>St. Mary's Glacier (10,400+ ft):</strong> Go slow, hydrate constantly</li>
                     <li><strong>Symptoms to watch:</strong> Headache, nausea, fatigue</li>
                 </ul>
-                <h4>⚠️ September High-Altitude Warning</h4>
+                <h4>⚠️ September High-Altitude Weather Warning</h4>
                 <ul>
                     <li><strong>Snow possible above 10,000 ft:</strong> Echo Lake & St. Mary's Glacier</li>
                     <li><strong>Road closures:</strong> Squaw Pass (CO-103) can close suddenly</li>
@@ -1775,7 +1844,7 @@
         <div class="page day-page day-4" id="day4">
             <div class="day-header">
                 <div class="day-title">DAY 4 - TUESDAY, SEPTEMBER 30</div>
-                <div class="day-subtitle">💦 Seven Falls • Royal Gorge Bridge • Flight Home</div>
+                <div class="day-subtitle">💦 Seven Falls (Optional) • Royal Gorge Bridge • Flight Home</div>
             </div>
 
             <div class="section" style="--accent-color: #f9ca24;">
@@ -1786,7 +1855,7 @@
                         <p><strong>Flight:</strong> DEN 6:01 PM → DFW 9:15 PM<br>
                             <strong>Rental Return:</strong> By 4:30 PM<br>
                             <strong>Security:</strong> Arrive 2 hours early<br>
-                            <strong>Buffer Time:</strong> Critical for success!
+                            <strong>MUST LEAVE Royal Gorge:</strong> By 1:15 PM
                         </p>
                     </div>
                     <div class="info-card">
@@ -1798,9 +1867,9 @@
                     </div>
                     <div class="info-card">
                         <h4>💰 Final Day Costs</h4>
-                        <p><strong>Seven Falls:</strong> $20-35 per person<br>
+                        <p><strong>Seven Falls:</strong> $20-35 per person (Optional)<br>
                             <strong>Royal Gorge:</strong> $30-40 per person<br>
-                            <strong>Extra Activities:</strong> Gondola +$25pp
+                            <strong>Gondola:</strong> +$25pp (if time allows)
                         </p>
                     </div>
                     <div class="info-card">
@@ -1812,10 +1881,29 @@
                     </div>
                 </div>
             </div>
+            <!-- Weather for Final Day -->
+            <div class="weather-info">
+                <div class="weather-card">
+                    <h5>🌤️ Colorado Springs Morning</h5>
+                    <p>Loading...</p>
+                </div>
+                <div class="weather-card">
+                    <h5>💦 Seven Falls Area</h5>
+                    <p>Loading...</p>
+                </div>
+                <div class="weather-card">
+                    <h5>🌉 Royal Gorge</h5>
+                    <p>Loading...</p>
+                </div>
+                <div class="weather-card">
+                    <h5>🌆 Denver Evening (Airport)</h5>
+                    <p>Loading...</p>
+                </div>
+            </div>
 
             <!-- Detailed Day 4 Timeline -->
             <div class="section" style="--accent-color: #f9ca24;">
-                <h3><span class="icon">🗓️</span>Precise Day 4 Timeline</h3>
+                <h3><span class="icon">📅</span>Precise Day 4 Timeline</h3>
                 <table class="itinerary-table" style="--accent-color: #f9ca24;">
                     <thead>
                         <tr>
@@ -1829,66 +1917,66 @@
                     <tbody>
                         <tr>
                             <td><strong>07:00</strong></td>
-                            <td>🏨 Hotel Checkout</td>
+                            <td>🏨 Quality Inn checkout</td>
                             <td>30 min</td>
                             <td>—</td>
-                            <td>Pack car, grab breakfast to-go, full gas tank</td>
+                            <td>Confirmation #5429522905. Pack car, grab breakfast to-go</td>
                         </tr>
-                        <tr>
+                        <tr style="background: #fff3cd;">
                             <td><strong>07:30</strong></td>
-                            <td>💦 Seven Falls</td>
-                            <td>60-90 min</td>
-                            <td>20 min drive</td>
-                            <td>$20-35pp. Buy timed tickets online in advance!</td>
+                            <td>💦 Seven Falls (OPTIONAL)</td>
+                            <td>75 min</td>
+                            <td>15 mi</td>
+                            <td>$20-35pp. SKIP if running behind schedule</td>
                         </tr>
                         <tr>
-                            <td><strong>09:30</strong></td>
+                            <td><strong>09:00</strong></td>
                             <td>🚗 Drive to Royal Gorge</td>
-                            <td>60-75 min</td>
-                            <td>55-70 miles</td>
-                            <td>Scenic route through mountains via US-50 W</td>
+                            <td>75 min</td>
+                            <td>55 mi</td>
+                            <td>Via US-50 W through mountains. Scenic route</td>
                         </tr>
                         <tr>
-                            <td><strong>11:00</strong></td>
-                            <td>🌉 Royal Gorge Bridge</td>
-                            <td>60-90 min</td>
+                            <td><strong>10:15</strong></td>
+                            <td>🌉 Royal Gorge Bridge & Park</td>
+                            <td>120 min</td>
                             <td>—</td>
-                            <td>$30-40pp base. Gondola +$25pp if time allows</td>
+                            <td>$30-40pp base. Bridge walk + gondola if time allows</td>
                         </tr>
                         <tr>
-                            <td><strong>13:30</strong></td>
-                            <td>🍽️ Quick Lunch (Optional)</td>
-                            <td>30-45 min</td>
+                            <td><strong>12:15</strong></td>
+                            <td>🍽️ Quick lunch (grab & go)</td>
+                            <td>15 min</td>
                             <td>—</td>
-                            <td>Grab-and-go options at Royal Gorge or pack lunch</td>
+                            <td>Pack lunch or quick snack at Royal Gorge</td>
                         </tr>
                         <tr style="background: #ffcccb;">
-                            <td><strong>14:15</strong></td>
+                            <td><strong>12:30</strong></td>
                             <td>🚗 CRITICAL: Drive to DEN</td>
-                            <td>2.5-3 hours</td>
-                            <td>140-180 mi</td>
-                            <td>⚠️ MUST LEAVE BY 1:30 PM LATEST for safe arrival and for 4:30 PM return</td>
+                            <td>180 min</td>
+                            <td>140 mi</td>
+                            <td>🚨 MUST LEAVE BY 12:30 PM for safe flight connection</td>
+                        </tr>
+                        <tr style="background: #ffcccb;">
+                            <td><strong>15:30</strong></td>
+                            <td>🚗 Rental car return</td>
+                            <td>60 min</td>
+                            <td>—</td>
+                            <td>Return by 4:30 PM. Allow time for inspection & shuttle</td>
                         </tr>
                         <tr style="background: #ffcccb;">
                             <td><strong>16:30</strong></td>
-                            <td>🚗 Rental Car Return</td>
-                            <td>30 min</td>
+                            <td>✈️ Airport check-in & security</td>
+                            <td>90 min</td>
                             <td>—</td>
-                            <td>Allow extra time for inspection, shuttle to terminal</td>
-                        </tr>
-                        <tr style="background: #ffcccb;">
-                            <td><strong>17:00</strong></td>
-                            <td>✈️ Airport Check-in</td>
-                            <td>60 min</td>
-                            <td>—</td>
-                            <td>Security, gate arrival. Flight boards at 5:35 PM</td>
+                            <td>Flight 4464 boards at 5:35 PM</td>
                         </tr>
                         <tr>
                             <td><strong>18:01</strong></td>
                             <td>✈️ Departure to DFW</td>
-                            <td>Flight time</td>
+                            <td>2h 14m</td>
                             <td>—</td>
-                            <td>Flight 4464. Arrive DFW 9:15 PM local time</td>
+                            <td>Arrive DFW 9:15 PM local time</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1920,11 +2008,11 @@
                             • <strong>Zip line:</strong> Additional cost, if operational</p>
                     </div>
                     <div class="info-card">
-                        <h4>📸 Photo Tips</h4>
-                        <p>• <strong>Best angle:</strong> From the base looking up<br>
-                            • <strong>Lighting:</strong> Morning light is ideal<br>
-                            • <strong>Wide lens:</strong> Capture all seven tiers<br>
-                            • <strong>Stairs view:</strong> Different perspective from top</p>
+                        <h4>⚠️ OPTIONAL STATUS</h4>
+                        <p>• <strong>Skip if behind:</strong> Royal Gorge is priority<br>
+                            • <strong>Weather dependent:</strong> May be closed<br>
+                            • <strong>Time sensitive:</strong> Must finish by 8:45 AM<br>
+                            • <strong>Backup plan:</strong> Go straight to Royal Gorge</p>
                     </div>
                 </div>
             </div>
@@ -1937,7 +2025,7 @@
                         <h4>🌉 The Bridge Stats</h4>
                         <p>• <strong>Height:</strong> 955 feet above Arkansas River<br>
                             • <strong>Length:</strong> 1,260 feet span<br>
-                            • <strong>Built:</strong> 1929, still highest suspension bridge in US<br>
+                            • <strong>Built:</strong> 1929, highest suspension bridge in US<br>
                             • <strong>Views:</strong> 360° Colorado scenery</p>
                     </div>
                     <div class="info-card">
@@ -1956,32 +2044,32 @@
                     </div>
                     <div class="info-card">
                         <h4>⏰ Time Planning</h4>
-                        <p>• <strong>Bridge walk only:</strong> 45-60 minutes<br>
+                        <p>• <strong>Bridge walk only:</strong> 60-75 minutes<br>
                             • <strong>With gondola:</strong> 90-120 minutes<br>
-                            • <strong>Full experience:</strong> 2-3 hours<br>
-                            • <strong>Our limit:</strong> 90 min max due to flight</p>
+                            • <strong>Our limit:</strong> MUST LEAVE by 12:30 PM<br>
+                            • <strong>Priority:</strong> Bridge walk + photos</p>
                     </div>
                 </div>
             </div>
 
             <!-- Route to Denver -->
             <div class="scenic-route">
-                <h4>🛣️ Royal Gorge to Denver - Route Options</h4>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <h4>🛣️ Royal Gorge to Denver - Critical Route Information</h4>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
                     <div style="background: rgba(144, 238, 144, 0.7); padding: 15px; border-radius: 10px;">
-                        <h5><strong>🚀 FASTEST Route (Recommended):</strong></h5>
-                        <p><strong>Time:</strong> 2.5-3 hours<br>
+                        <h5><strong>🚀 FASTEST Route (MANDATORY):</strong></h5>
+                        <p><strong>Time:</strong> 3 hours maximum<br>
                             <strong>Route:</strong> Royal Gorge → US-50 E → I-25 N → I-70 W → Peña Blvd → DEN<br>
                             <strong>Distance:</strong> ~140 miles<br>
-                            <strong>Why:</strong> Mostly highway, predictable timing
+                            <strong>Why:</strong> Mostly highway, predictable timing, GPS-friendly
                         </p>
                     </div>
-                    <div style="background: rgba(255, 255, 224, 0.7); padding: 15px; border-radius: 10px;">
-                        <h5><strong>🌄 Scenic Route (If Time Allows):</strong></h5>
-                        <p><strong>Time:</strong> 3-3.5 hours<br>
-                            <strong>Route:</strong> Royal Gorge → US-285 N → US-24 N → I-70 E → DEN<br>
-                            <strong>Distance:</strong> ~165 miles<br>
-                            <strong>Caution:</strong> Mountain roads, use only if ahead of schedule
+                    <div style="background: rgba(255, 182, 182, 0.7); padding: 15px; border-radius: 10px;">
+                        <h5><strong>⚠️ DO NOT TAKE scenic routes today:</strong></h5>
+                        <p><strong>Mountain routes:</strong> Too risky for flight timing<br>
+                            <strong>Construction zones:</strong> Can add 30-60 minutes<br>
+                            <strong>Weather delays:</strong> Possible on high passes<br>
+                            <strong>Your flight:</strong> More important than scenery
                         </p>
                     </div>
                 </div>
@@ -1994,36 +2082,16 @@
                 <ul>
                     <li><strong>⏰ Time is EVERYTHING:</strong> Stick to the schedule religiously. Flight won't wait!
                     </li>
-                    <li><strong>🚗 Leave Royal Gorge by 2:15 PM LATEST:</strong> Earlier if weather/traffic concerns
+                    <li><strong>🚗 Leave Royal Gorge by 12:30 PM LATEST:</strong> Earlier if weather/traffic concerns
                     </li>
-                    <li><strong>⛽ Gas Tank Strategy:</strong> Fill up in Colorado Springs before Seven Falls</li>
+                    <li><strong>⛽ Gas Tank Strategy:</strong> Fill up in Colorado Springs before leaving hotel</li>
                     <li><strong>📱 Monitor Traffic:</strong> Use Google Maps live traffic for I-25 and I-70</li>
                     <li><strong>🎫 Pre-buy Tickets:</strong> Seven Falls and Royal Gorge both offer online tickets</li>
                     <li><strong>🧳 Pack Smart:</strong> Keep bags accessible for quick hotel checkout</li>
                     <li><strong>📞 Airline App:</strong> Download airline app, mobile boarding passes ready</li>
-                    <li><strong>🚨 Emergency Plan:</strong> If running late, skip Royal Gorge and drive straight to DEN
-                    </li>
+                    <li><strong>🚨 Emergency Plan:</strong> If running late, skip Seven Falls and/or leave Royal Gorge
+                        early</li>
                 </ul>
-            </div>
-
-            <!-- Weather for Final Day -->
-            <div class="weather-info">
-                <div class="weather-card">
-                    <h5>🌤️ Colorado Springs Morning</h5>
-                    <p>Loading...</p>
-                </div>
-                <div class="weather-card">
-                    <h5>💦 Seven Falls Area</h5>
-                    <p>Loading...</p>
-                </div>
-                <div class="weather-card">
-                    <h5>🌉 Royal Gorge</h5>
-                    <p>Loading...</p>
-                </div>
-                <div class="weather-card">
-                    <h5>🌆 Denver Evening (Airport)</h5>
-                    <p>Loading...</p>
-                </div>
             </div>
 
 
@@ -2033,17 +2101,38 @@
                 <div class="overview-grid">
                     <div class="info-card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);">
                         <h4>🕐 Plan B (30 min behind)</h4>
-                        <p>• Skip breakfast, grab coffee to-go<br>
-                            • Limit Seven Falls to 60 minutes<br>
-                            • Royal Gorge: Bridge walk only<br>
-                            • Leave Royal Gorge by 1:45 PM</p>
+                        <p>• Skip Seven Falls entirely<br>
+                            • Go straight to Royal Gorge<br>
+                            • Limit Royal Gorge to bridge walk only<br>
+                            • Leave Royal Gorge by 12:00 PM</p>
                     </div>
                     <div class="info-card" style="background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);">
                         <h4>🚨 Plan C (1+ hour behind)</h4>
-                        <p>• Seven Falls only, skip Royal Gorge<br>
-                            • OR Royal Gorge only, skip Seven Falls<br>
-                            • Drive straight to Denver by 1 PM<br>
-                            • Your flight is more important!</p>
+                        <p>• Skip both attractions<br>
+                            • Drive straight to Denver by 11:00 AM<br>
+                            • Arrive airport early for peace of mind<br>
+                            • Your flight is more important than sightseeing!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Flight Information -->
+            <div class="emergency-info">
+                <h4>✈️ FLIGHT INFORMATION - DO NOT MISS</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                    <div>
+                        <h5><strong>Flight Details</strong></h5>
+                        <p>• <strong>Flight 4464:</strong> DEN → DFW<br>
+                            • <strong>Departure:</strong> 6:01 PM<br>
+                            • <strong>Arrival:</strong> 9:15 PM (Dallas time)<br>
+                            • <strong>Boarding:</strong> 5:35 PM</p>
+                    </div>
+                    <div>
+                        <h5><strong>Critical Deadlines</strong></h5>
+                        <p>• <strong>Rental Return:</strong> 4:30 PM<br>
+                            • <strong>Security Deadline:</strong> 4:45 PM<br>
+                            • <strong>Last Royal Gorge Exit:</strong> 12:30 PM<br>
+                            • <strong>Traffic Buffer:</strong> 30 minutes minimum</p>
                     </div>
                 </div>
             </div>
